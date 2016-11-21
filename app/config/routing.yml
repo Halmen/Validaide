@@ -1,0 +1,6 @@
+mkt:
+    resource: "@MKTBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+

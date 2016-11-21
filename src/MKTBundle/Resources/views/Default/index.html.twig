@@ -1,0 +1,89 @@
+{% block head %}
+    <title>{% block title %}
+            MKT
+        {% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'css/*' '@MKTBundle/Resources/public/css/main.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
+    <h1>Mean Kinetic Temperature Calculator</h1>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <p> Previous calculations: </p>
+            <select class="list" size="25" name="recordings" multiple>
+                <ul id='list'>
+                    {% for m in mkt %}
+                        <option>{{ m.getDatetime }}</option>
+                    {% endfor %}
+                </ul>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well well-sm">
+                <div id="given">
+                    <p>activation Energy(E: kJ/mole):</p>
+                    <input id="energy" type="number" value="83.14472" name="activation_energy"><br><br>
+                    <p>Gas constant(R:J/mole/degree):</p>
+                    <input id="gas" type="number" value="8.314472" name="gas_constant"><br><br>
+
+                </div>
+
+                <p>Temperatures(°C):</p>
+                <div class="temperatures">
+
+
+                    <div class="T">
+                        <input type="number" class="temperature" value="0" name=temp>
+                        <button id="minus" type="button">-</button>
+                    </div>
+
+
+                    <a href="#" id="plus" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> </a>
+                </div>
+                <div class="alert alert-success">
+                    <p>MKT(°C):</p>
+                    <h2 id="mkt"></h2>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <a href="#" class="btn btn-success" id="show"><span class="glyphicon glyphicon-plus"></span> Send&Save</a>
+            <div class="send_save">
+
+
+                <input type="email" id="email" placeholder="Enter your email">
+                <a href="#" class="btn btn-default" id="send"><span class="glyphicon glyphicon-envelope"></span> </a>
+                <a href="#" class="btn btn-default" id="save"><span class="glyphicon glyphicon-floppy-save"></span> </a>
+
+
+            </div>
+        </div>
+    </div>
+
+<div class="alert alert-danger">
+    <h2 id="errors"></h2>
+</div>
+
+{% endblock %}
+
+    {% block integer_widget %}
+
+    {% endblock integer_widget %}
+    {% block javascripts %}
+
+        {% javascripts 'js/*' '@MKTBundle/Resources/public/js/main.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    {% endblock %}
+

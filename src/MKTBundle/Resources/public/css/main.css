@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.row {
+    padding-top: 2cm;
+}
+
+.list {
+
+    width: 170px;
+
+}
+
+#plus {
+    margin-left: 2cm;
+    /*width: 50px;*/
+    /*height: 50px;*/
+
+}
+
+.send_save {
+
+    display: none;
+    padding-left: 2cm;
+}
+
+p {
+
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+
